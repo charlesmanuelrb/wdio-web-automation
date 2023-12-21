@@ -20,6 +20,6 @@ El código fuente se encuentra en el repositorio GitHub https://github.com/: htt
 
 Notas
 
-Se utilizó el lenguaje de programación JavaScript.
+Se utilizó el lenguaje de programación Typescript.
 Se utilizó el framework Cucumber para la especificación de escenarios de pruebas.
 Se utilizó el gestor de dependencias npm.
