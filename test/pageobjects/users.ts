@@ -1,4 +1,6 @@
+import { expect } from '@wdio/globals'
 import { nanoid } from 'nanoid';
+import { waitUntil } from 'webdriverio/build/commands/element';
 
 // Define la interfaz User con propiedades para los datos del usuario
 
@@ -24,18 +26,7 @@ class Users {
     password: 'password'
   }
 
-  //Alerts Handlers
-  public async signupSuccesfulAlert() {
-    const textAlert = (await browser.getAlertText()); 
-     expect(textAlert).toBe('Sign up successful.');
-  }
-
-  public async signupExistUsrAlert() {
-    const textAlert = (await browser.getAlertText()); 
-     expect(textAlert).toBe('This user already exist.');
-  }
-    
   
 }
-// Exporta la clase Users para que pueda ser utilizada en otros archivos
+
 export default Users;

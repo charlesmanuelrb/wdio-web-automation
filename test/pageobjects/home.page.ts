@@ -31,6 +31,10 @@ class homePage extends Page {
     }
 
 //Login Selectors
+    public get ttlLogInFrame () {
+        return $('[id="logInModalLabel"]');
+    }
+
     public get txtBoxLoginUsername () {
         return $('[id="loginusername"]');
     }
@@ -44,42 +48,65 @@ class homePage extends Page {
     }
     
     public get btnLogInGo () {
-        return $('button[onclick="logIn()"]');
+        return $('//button[.="Log in"]');
     }
   
     public get btnCloseLogIn () {
         return $('#logInModal');
     }
 
-   
+    public get btnWelcomeLogIn () {
+        return $('button[onclick="logOut()"]');
+    }
+
+    public get btnLogOut () {
+        return $('id = logout2');
+    }
 
 //Login method
     public async logIn (username: string, password: string) {
-        await this.txtBoxLoginUsername.waitForExist();
+
+        report.addStep('Click on "Log in" button at the top bar')
+        await this.btnLogin.click();
+
+        report.addStep('Type username');
+        await this.txtBoxLoginUsername.waitForDisplayed();
         await this.txtBoxLoginUsername.setValue(username);
+
+        await expect(this.ttlLogInFrame).toBeDisplayed(
+            {message: 'Log in Frame is not Displaying correctly'});
+
+        report.addStep('Type password');
         await this.txtBoxLoginPassword.setValue(password);
+
+        report.addStep('Click on "Log In" button');
         await this.btnLogInGo.click();
-        await browser.pause(2000);
+        
+        await browser.pause(5000);
     }
 
 //SignUp method
     public async signUp (username: string, password: string) {
+
         report.addStep('Click on "Sign up" button at the top bar')
         await this.btnSignin.click();
 
-        report.addStep('Type username')
+        report.addStep('Type username');
         await this.txtBoxSignUsername.waitForDisplayed();
+
         await expect(this.ttlSignInFrame).toBeDisplayed(
             {message: 'Sign Up Frame is not Displaying correctly'});
         await this.txtBoxSignUsername.setValue(username);
         
-        report.addStep('Type password')
+        report.addStep('Type password');
         await this.txtBoxSignPassword.setValue(password);
         
         report.addStep('Click on "Sign up" button')
         await this.btnSignInGo.click();
+
+        await browser.pause(5000);
+        
     }
-    
 
     public open () {
         return super.open('index.html');

@@ -31,9 +31,15 @@ export const config: Options.Testrunner = {
     // will be called from there.
     //
     specs: [
-        './test/specs/**/*.ts'
+        './test/specs/*.ts'
     ],
-
+     
+     // define specific suites
+     suites: {
+         cart: [
+             './test/specs/cart.test.ts'
+         ]
+        },
     
     // Patterns to exclude.
     exclude: [
