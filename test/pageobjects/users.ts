@@ -1,6 +1,4 @@
-import { expect } from '@wdio/globals'
 import { nanoid } from 'nanoid';
-import { waitUntil } from 'webdriverio/build/commands/element';
 
 // Define la interfaz User con propiedades para los datos del usuario
 

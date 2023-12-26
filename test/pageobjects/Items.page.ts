@@ -16,8 +16,9 @@ class itemsPage extends Page {
     }
 
 //Product Cards Selectors
-    public get lnkCardTitle() {
-        return $('["#tbodyid > div:nth-of-type(1) .hrefch")"]');
+    public get lnkItemTitle() {
+        return $('a[href="prod.html?idp_=8"]');
+        //return $('[//a[.="Sony vaio i5"]]')
     }
     
     public get txtCardPrice() {

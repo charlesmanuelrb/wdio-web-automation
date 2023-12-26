@@ -1,15 +1,22 @@
 import { $ } from '@wdio/globals'
 import Page from './page.js';
 
-/**
- * sub page containing specific selectors and methods for a specific page
- */
 class CartPage extends Page {
-    /**
-     * define selectors using getter methods
-     */
-    public get flashAlert () {
-        return $('#flash');
+
+    public get btnShowCart () {
+        return $('[onclick=\'showcart()\']');
+    }
+
+    public get btnAddToCart () {
+        return $('[onclick=\'addToCart(8)\']');
+    }
+
+    public get btnDeleteItem () {
+        return $('[//a[.="Delete"]]');
+    }
+
+    public open () {
+        return super.open('cart.html');
     }
 }
 
