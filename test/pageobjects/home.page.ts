@@ -1,84 +1,89 @@
 import { $ } from '@wdio/globals'
 import Page from './page.js';
+import report from '@wdio/allure-reporter';
 
-/**
- * sub page containing specific selectors and methods for a specific page
- */
-class HomePage extends Page {
-    /**
-     * define selectors using getter methods
-     */
+class homePage extends Page {
+
+//Sign Up Selectors
+
+    public get ttlSignInFrame () {
+        return $('[id="signInModalLabel"]');
+    }
     
-    public get signUsername () {
+    public get txtBoxSignUsername () {
         return $('[id="sign-username"]');
     }
 
-    public get signPassword () {
+    public get txtBoxSignPassword () {
         return $('[id="sign-password"]');
-    }
-
-    public get loginUsername () {
-        return $('[id="loginusername"]');
-    }
-
-    public get loginPassword () {
-        return $('[id="loginpassword"]');
-    }
-
-    public get btnLogin () {
-        return $('[id="login2"]');
     }
 
     public get btnSignin () {
         return $('[id="signin2"]');
-    }
-    
-    public get btnLogInGo () {
-        return $('button[onclick="logIn()"]');
     }
 
     public get btnSignInGo () {
         return $('button[onclick="register()"]');
     }
 
-    public get btnCloseLogIn () {
-        return $('#logInModal');
-    }
-
     public get btnCloseSignIn () {
         return $('#signInModal');
     }
 
-    /**
-     * a method to encapsule automation code to interact with the page
-     * e.g. to login using username and password
-     */
+//Login Selectors
+    public get txtBoxLoginUsername () {
+        return $('[id="loginusername"]');
+    }
+
+    public get txtBoxLoginPassword () {
+        return $('[id="loginpassword"]');
+    }
+
+    public get btnLogin () {
+        return $('[id="login2"]');
+    }
+    
+    public get btnLogInGo () {
+        return $('button[onclick="logIn()"]');
+    }
+  
+    public get btnCloseLogIn () {
+        return $('#logInModal');
+    }
+
+   
+
+//Login method
     public async logIn (username: string, password: string) {
-        await this.btnLogin.click();
-        await browser.pause(2000);
-        await this.loginUsername.waitForDisplayed();
-        await this.loginUsername.setValue(username);
-        await browser.pause(2000);
-        await this.loginPassword.setValue(password);
+        await this.txtBoxLoginUsername.waitForExist();
+        await this.txtBoxLoginUsername.setValue(username);
+        await this.txtBoxLoginPassword.setValue(password);
         await this.btnLogInGo.click();
         await browser.pause(2000);
     }
+
+//SignUp method
     public async signUp (username: string, password: string) {
+        report.addStep('Click on "Sign up" button at the top bar')
         await this.btnSignin.click();
-        await browser.pause(2000);
-        await this.signUsername.waitForDisplayed();
-        await this.signUsername.setValue(username);
-        await browser.pause(2000);
-        await this.signPassword.setValue(password);
+
+        report.addStep('Type username')
+        await this.txtBoxSignUsername.waitForDisplayed();
+        await expect(this.ttlSignInFrame).toBeDisplayed(
+            {message: 'Sign Up Frame is not Displaying correctly'});
+        await this.txtBoxSignUsername.setValue(username);
+        
+        report.addStep('Type password')
+        await this.txtBoxSignPassword.setValue(password);
+        
+        report.addStep('Click on "Sign up" button')
         await this.btnSignInGo.click();
-        await browser.pause(2000);
     }
-    /**
-     * overwrite specific options to adapt it to page object
-     */
+    
+
     public open () {
         return super.open('index.html');
     }
 }
 
-export default new HomePage();
+export default new homePage();

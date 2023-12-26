@@ -33,6 +33,8 @@ export const config: Options.Testrunner = {
     specs: [
         './test/specs/**/*.ts'
     ],
+
+    
     // Patterns to exclude.
     exclude: [
         // 'path/to/excluded/files'
@@ -121,6 +123,7 @@ export const config: Options.Testrunner = {
     // before running any tests.
     framework: 'mocha',
     
+    
     //
     // The number of times to retry the entire specfile when it fails as a whole
     // specFileRetries: 1,
@@ -134,7 +137,11 @@ export const config: Options.Testrunner = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
-    reporters: ['spec'],
+    reporters: [['allure', {
+        outputDir: 'allure-results',
+        disableWebdriverStepsReporting: false,
+        disableWebdriverScreenshotsReporting: false,
+    }]],
 
     // Options to be passed to Mocha.
     // See the full list at http://mochajs.org/
