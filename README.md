@@ -1,25 +1,47 @@
-README
+# Web UI Automation with WebdriverIO, Mocha and Allure
 
-Ejercicios de automatización
+The framework was tested against the Blaze Store website, which is an e-commerce demo website . 
+## https://www.demoblaze.com/index.html.
 
-Este repositorio contiene la solución a dos de los tres ejercicios propuestos en la Agenda de ejercicios de automatización.
+The framework allows for automated testing of web applications using the following technologies:
 
-Para ejecutar los ejercicios, siga los siguientes pasos:
+* **JavaScript:** 
+* **WebdriverIO:** A JavaScript library that facilitates the execution of web application tests.
+* **Allure:** A test report generation tool.
+* **Mocha:** A JavaScript test framework that supports BDD.
 
-Instale las dependencias necesarias.
+## Design patterns and methodology
+**Page Object Model (POM)** was selected as the design pattern. This pattern helps to keep the test cases modular and easy to maintain. 
+
+Mocha was selected for its support of **BDD**.
+
+## Installation
+
+To install the framework, follow these steps:
+
+1. **Install Node.js.**
+2. **Install the project dependencies:**
+
+```jsx
 npm install
-Ejecute el comando test para ejecutar los tests.
+```
+## Running the tests
+
+To run the tests, execute the following command:
+
+```jsx
 npm test
-Reporte de resultados
+```
 
-El reporte de resultados se genera automáticamente al ejecutar los tests. El reporte se encuentra en el directorio reports.
+This will execute all the tests in the project.
 
-Repositorio GitHub
+## Generating Allure reports
 
-El código fuente se encuentra en el repositorio GitHub https://github.com/: https://github.com/<tu_nombre_de_usuario>/ejercicios-automatizacion: https://github.com/: https://github.com/<tu_nombre_de_usuario>/ejercicios-automatizacion.
+To generate Allure reports, execute the following command:
+```jsx
+npm run allure
+```
+This will open a web server that will display the Allure reports.
 
-Notas
 
-Se utilizó el lenguaje de programación Typescript.
-Se utilizó el framework Cucumber para la especificación de escenarios de pruebas.
-Se utilizó el gestor de dependencias npm.
+
