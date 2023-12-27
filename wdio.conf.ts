@@ -38,7 +38,13 @@ export const config: Options.Testrunner = {
      suites: {
          cart: [
              './test/specs/cart.test.ts'
-         ]
+         ],
+         login: [
+            './test/specs/login.test.ts'
+        ],
+        signup: [
+            './test/specs/signup.test.ts'
+        ]
         },
     
     // Patterns to exclude.
