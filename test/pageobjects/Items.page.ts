@@ -24,22 +24,6 @@ class itemsPage extends Page {
     public get txtCardPrice() {
         return $("#tbodyid > div:nth-of-type(1) h5")
     }
-/*
-    async function getProductCount() {
-        const productElements = await $$('.card-block a.hrefch'); // Finds all product link elements
-        const productCount = productElements.length; // Gets the number of products
 
-        // Iterates over product link elements and extracts product numbers
-        const productIds = [];
-        for (const productElement of productElements) {
-            const href = await productElement.getAttribute('href');
-            const productId = href.match(/idp_=(\d+)/)[1]; // Extracts the product number from the href
-            productIds.push(productId);
-    }
-
-    console.log('Number of products on the page:', productCount);
-    console.log('Product numbers:', productIds);
-}
-*/
 }
 export default new itemsPage();

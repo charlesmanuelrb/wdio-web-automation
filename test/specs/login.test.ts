@@ -50,20 +50,3 @@ describe('[WA_LI] Log in', () => {
 
     })
 })
-/*
-describe('[WA_LI] Log in', () => {
-    it('[WA_LI_4] Log out', async () => {
-
-        report.addStep('Go to Home Page')
-        await homePage.open()
-        await homePage.logIn(
-            Users.registeredUsr.username, 
-            Users.registeredUsr.password);
-
-        report.addStep('Click Log Out');
-        homePage.btnLogOut.click;
-    
-    })
-    
-})
-*/

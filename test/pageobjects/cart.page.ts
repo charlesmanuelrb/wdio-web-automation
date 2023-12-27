@@ -2,7 +2,7 @@ import { $ } from '@wdio/globals'
 import Page from './page.js';
 
 class CartPage extends Page {
-
+//Cart Selectors
     public get btnShowCart () {
         return $('[onclick=\'showcart()\']');
     }
