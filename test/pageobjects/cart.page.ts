@@ -12,7 +12,7 @@ class CartPage extends Page {
     }
 
     public get btnDeleteItem () {
-        return $('[//a[.="Delete"]]');
+        return $('//a[.="Delete"]');
     }
 
     public open () {
