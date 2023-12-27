@@ -30,16 +30,18 @@ npm install
 To run the tests, execute the following command:
 
 ```jsx
-npm test
+ npx wdio run wdio.conf.ts --allure
 ```
-
-This will execute all the tests in the project.
+To run a specific suite:
+```jsx
+ npx wdio run wdio.conf.ts --allure --suite {MODULE i.e cart}  
+```
 
 ## Generating Allure reports
 
 To generate Allure reports, execute the following command:
 ```jsx
-npm run allure
+allure serve
 ```
 This will open a web server that will display the Allure reports.
 
