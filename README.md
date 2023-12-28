@@ -39,7 +39,7 @@ To run a specific suite:
 
 ## Generating Allure reports
 
-To generate Allure reports, execute the following command:
+To generate Allure reports, execute the following command from the project directory:
 ```jsx
 allure serve
 ```
