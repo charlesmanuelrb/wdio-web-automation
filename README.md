@@ -5,7 +5,7 @@ The framework was tested against the Blaze Store website, which is an e-commerce
 
 The framework allows for automated testing of web applications using the following technologies:
 
-* **JavaScript:** 
+* **Typescript** 
 * **WebdriverIO:** A JavaScript library that facilitates the execution of web application tests.
 * **Allure:** A test report generation tool.
 * **Mocha:** A JavaScript test framework that supports BDD.
